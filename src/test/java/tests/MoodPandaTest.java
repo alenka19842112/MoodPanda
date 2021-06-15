@@ -11,13 +11,11 @@ public class MoodPandaTest extends BaseTest implements IConstansTest {
         loginPage
                 .openPage()
                 .login(LOGIN, PASSWORD)
-                .waitForMoodButtonVisible()
                 .clickOnUpdateMoodButton()
-                .waitForInputVisible()
                 .inputText("I'm Ok")
                 .updateMood(10)
                 .clickGoToMyDiaryButton();
-        Assert.assertEquals(myDiaryPage.getText(MOOD_POST_ITEM_CSS), "I'm Ok");
+        Assert.assertEquals(myDiaryPage.getMoodPostText(1), "I'm Ok");
     }
 
     @Test(description = "checking the last mood digit on My Diary page", priority = 1)
@@ -25,11 +23,10 @@ public class MoodPandaTest extends BaseTest implements IConstansTest {
         loginPage
                 .openPage()
                 .login(LOGIN, PASSWORD)
-                .waitForMoodButtonVisible()
                 .clickOnUpdateMoodButton()
                 .updateMood(1)
                 .clickGoToMyDiaryButton();
-        Assert.assertEquals(myDiaryPage.getText(BADGE_CSS), "1");
+        Assert.assertEquals(myDiaryPage.getMoodDigitText(1), "1");
     }
 
     @Test(description = "delete post mood Diary on My Updates page", priority = 1)
@@ -37,8 +34,9 @@ public class MoodPandaTest extends BaseTest implements IConstansTest {
         loginPage
                 .openPage()
                 .login(LOGIN, PASSWORD)
-                .clickMeDropDownAndMyUpdates();
-        String elementId = myUpdatesPage.clickDeleteButtonMyDiary(1);
-        Assert.assertFalse(myUpdatesPage.isExistDeletedElementIDOnMyDiaryPage(elementId));
+                .clickMyUpdatesFromDropDown();
+        String elementId = myUpdatesPage.getElementIdAttributeByPostNumber(2);
+        myUpdatesPage.clickDeleteButtonForPostNumber(2);
+        Assert.assertFalse(myUpdatesPage.isDeleteButtonDisplayedForElementId(elementId));
     }
 }
