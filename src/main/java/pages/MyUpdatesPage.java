@@ -19,7 +19,7 @@ public class MyUpdatesPage extends DropDownPage implements IConstans {
         return elementId;
     }
 
-    //@Step("click Delete for Post Button on My Updates Page")
+    @Step("click Delete for Post Button on My Updates Page")
     public MyUpdatesPage clickDeleteButtonForPostNumber(int numberOfPost) {
         $$(DELETE_BUTTON_CSS).get(numberOfPost - 1).click();
         return this;

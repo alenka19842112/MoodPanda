@@ -11,7 +11,7 @@ public class DropDownPage extends BasePage implements IConstans {
     public static final String ME_DROP_DOWN_CSS = "#LIMe";
     public static final String ACCOUNT_DROP_DOWN_CSS = "#Settings";
 
-    //@Step("click 'My Updates' from DropDown 'Me'")
+    @Step("click 'My Updates' from DropDown 'Me'")
     public MyUpdatesPage clickMyUpdatesFromDropDown() {
         waitForElementVisible(ME_DROP_DOWN_CSS);
         $(ME_DROP_DOWN_CSS).click();
