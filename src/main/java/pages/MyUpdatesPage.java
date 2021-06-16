@@ -2,6 +2,8 @@ package pages;
 
 import com.codeborne.selenide.Condition;
 import constans.IConstans;
+import io.qameta.allure.Step;
+
 import static com.codeborne.selenide.Selenide.$$;
 
 public class MyUpdatesPage extends DropDownPage implements IConstans {
@@ -17,6 +19,7 @@ public class MyUpdatesPage extends DropDownPage implements IConstans {
         return elementId;
     }
 
+    @Step("click Delete for Post Button on My Updates Page")
     public MyUpdatesPage clickDeleteButtonForPostNumber(int numberOfPost) {
         $$(DELETE_BUTTON_CSS).get(numberOfPost - 1).click();
         return this;
