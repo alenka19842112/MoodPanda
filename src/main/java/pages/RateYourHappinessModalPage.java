@@ -10,14 +10,14 @@ public class RateYourHappinessModalPage extends BasePage implements IConstans {
     public static final String UPDATE_MOOD_BUTTON = ".ButtonUpdate";
     public static final String INPUT_CSS = "#TextBoxUpdateMoodTag";
 
-    @Step("Input text on Rate your Happiness Modal")
+    //@Step("Input text on Rate your Happiness Modal")
     public RateYourHappinessModalPage inputText(String text) {
         waitForElementVisible(INPUT_CSS);
         $(INPUT_CSS).sendKeys(text);
         return this;
     }
 
-    @Step("Update Mood on Rate your Happiness Modal")
+    //@Step("Update Mood on Rate your Happiness Modal")
     public MoodUpdatedModalPage updateMood(int moodValue) {
         $(SLIDER_CSS).click();
         int defaultMoodValue = 5;
